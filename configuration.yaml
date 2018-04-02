@@ -2,8 +2,8 @@ homeassistant:
   # Name of the location where Home Assistant is running
   name: Home
   # Location required to calculate the time the sun rises and sets
-  latitude: 45.5774
-  longitude: -122.6208
+  latitude: 45.561786
+  longitude: -122.631477
   # Impacts weather/sunrise data (altitude above sea level in meters)
   elevation: 0
   # metric for Metric, imperial for Imperial
@@ -12,9 +12,20 @@ homeassistant:
   time_zone: America/Los_Angeles
   # Customization file
   customize: !include customize.yaml
+  customize_glob: !include customize_glob.yaml
+zwave:
+  usb_path: /dev/ttyACM0
 
-# Show links to resources in log and frontend
-introduction: 
+media_player:
+  - platform: denonavr
+  - platform: webostv
+    host: 10.0.0.207
+    turn_on_action:
+      service: wake_on_lan.send_magic_packet
+      data:
+        mac: 38:8C:50:B4:4A:47
+
+ios:
 
 # Enables the frontend
 frontend:
@@ -22,11 +33,15 @@ frontend:
 # Enables configuration UI
 config:
 
+wake_on_lan:
+
 http:
   # Secrets are defined in the file secrets.yaml
-  # api_password: !secret http_password
+  api_password: !secret http_password
   # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-  # base_url: example.duckdns.org:8123
+  base_url: 5314.duckdns.org:8123
+  ssl_certificate: /home/homeassistant/dehydrated/certs/5314.duckdns.org/fullchain.pem
+  ssl_key: /home/homeassistant/dehydrated/certs/5314.duckdns.org/privkey.pem
 
 # Checks for available updates
 # Note: This component will send some information about your system to
@@ -58,6 +73,7 @@ sun:
 # Weather prediction
 sensor:
   - platform: yr
+    name: Weather
 
 # Text to speech
 tts:

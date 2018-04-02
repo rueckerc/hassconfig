@@ -1,0 +1,24 @@
+zwave.ecolink_motion_detector_4:
+  new_entity_id: zwave.patio_motion
+zwave.ecolink_motion_detector:
+  new_entity_id: zwave.patio_motion
+binary_sensor.sensor:
+  new_entity_id: binary_sensor.patio_motion
+device_tracker.curtiss_iphone:
+  friendly_name: Curtis
+sensor.curtiss_iphone_battery_level:
+  hidden: true
+sensor.curtiss_iphone_battery_state:
+  hidden: true
+sensor.ecolink_motion_detector:
+  hidden: true
+sensor.ecolink_motion_detector_burglar:
+  hidden: true
+sensor.ecolink_motion_detector_sourcenodeid:
+  hidden: true
+sensor.ecolink_motion_detector_power_management:
+  hidden: true
+sensor.alarm_type:
+  hidden: true
+sensor.alarm_level:
+  hidden: true

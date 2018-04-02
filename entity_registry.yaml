@@ -14,3 +14,63 @@ light.hue_color_lamp_4:
   name:
   platform: hue
   unique_id: 00:17:88:01:02:e8:47:84-0b
+sensor.curtiss_iphone_battery_state:
+  name:
+  platform: ios
+  unique_id: state_curtiss_iphone
+sensor.curtiss_iphone_battery_level:
+  name:
+  platform: ios
+  unique_id: level_curtiss_iphone
+light.hue_color_lamp_5:
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:03:da:8e:ff-0b
+light.hue_color_lamp_6:
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:03:df:52:14-0b
+light.hue_color_lamp_1:
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:03:80:02:f0-0b
+light.bathroom_vanity:
+  name: Bathroom Vanity
+  platform: zwave
+  unique_id: 2-72057594076299265
+switch.patio:
+  name:
+  platform: zwave
+  unique_id: 3-72057594093060096
+sensor.alarm_type:
+  name:
+  platform: zwave
+  unique_id: 4-72057594111082497
+sensor.alarm_level:
+  name:
+  platform: zwave
+  unique_id: 4-72057594111082513
+binary_sensor.patio_motion:
+  name: Patio Motion
+  platform: zwave
+  unique_id: 4-72057594110017536
+sensor.ecolink_motion_detector_sourcenodeid:
+  name:
+  platform: zwave
+  unique_id: 4-72057594111082529
+sensor.ecolink_motion_detector_burglar:
+  name:
+  platform: zwave
+  unique_id: 4-72057594111082657
+sensor.ecolink_motion_detector_power_management:
+  name:
+  platform: zwave
+  unique_id: 4-72057594111082673
+light.noload:
+  name: No Load
+  platform: zwave
+  unique_id: 5-72057594126630913
+light.dining_room:
+  name: Dining Room
+  platform: zwave
+  unique_id: 6-72057594143408129
