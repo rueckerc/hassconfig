@@ -16,6 +16,11 @@ homeassistant:
 zwave:
   usb_path: /dev/ttyACM0
 
+counter:
+  patio_motion_trigger:
+    initial: 0
+    step: 1
+
 media_player:
   - platform: denonavr
   - platform: webostv

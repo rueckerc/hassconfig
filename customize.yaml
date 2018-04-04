@@ -22,3 +22,5 @@ sensor.alarm_type:
   hidden: true
 sensor.alarm_level:
   hidden: true
+counter.patio_motion_trigger:
+  hidden: true
