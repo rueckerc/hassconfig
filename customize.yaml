@@ -6,21 +6,15 @@ binary_sensor.sensor:
   new_entity_id: binary_sensor.patio_motion
 device_tracker.curtiss_iphone:
   friendly_name: Curtis
-sensor.curtiss_iphone_battery_level:
-  hidden: true
-sensor.curtiss_iphone_battery_state:
-  hidden: true
-sensor.ecolink_motion_detector:
-  hidden: true
-sensor.ecolink_motion_detector_burglar:
-  hidden: true
-sensor.ecolink_motion_detector_sourcenodeid:
-  hidden: true
-sensor.ecolink_motion_detector_power_management:
-  hidden: true
+device_tracker.audreys_iphone:
+  friendly_name: Audrey
 sensor.alarm_type:
   hidden: true
 sensor.alarm_level:
   hidden: true
 counter.patio_motion_trigger:
   hidden: true
+counter.livingroom_motion_trigger:
+  hidden: true
+light.dining_room_chandelier:
+  friendly_name: Bar

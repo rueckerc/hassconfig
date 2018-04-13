@@ -16,19 +16,30 @@ homeassistant:
 zwave:
   usb_path: /dev/ttyACM0
 
+lutron_caseta_pro:
+  bridges:
+    - host: 192.168.86.73
+
 counter:
   patio_motion_trigger:
+    initial: 0
+    step: 1
+  livingroom_motion_trigger:
     initial: 0
     step: 1
 
 media_player:
   - platform: denonavr
   - platform: webostv
-    host: 10.0.0.207
+    host: 192.168.86.77
     turn_on_action:
       service: wake_on_lan.send_magic_packet
       data:
         mac: 38:8C:50:B4:4A:47
+
+hue:
+  bridges:
+    - host: 192.168.86.26
 
 ios:
 
@@ -86,6 +97,68 @@ tts:
 
 # Cloud
 cloud:
+
+scene:
+  - name: Bedtime
+    entities:
+      light.lamp:
+        state: on
+        brightness: 135
+      light.dining_room_chandelier:
+        state: on
+        brightness: 90
+      light.dining_room:
+        state: on
+        brightness: 90
+      light.bathroom_vanity:
+        state: on
+        brightness: 90
+      light.nursery:
+        state: on
+        brightness: 90
+  - name: Nightlight
+    entities:
+      light.lamp:
+        state: on
+        brightness: 80
+      light.dining_room_chandelier:
+        state: on
+        brightness: 60
+      light.dining_room:
+        state: on
+        brightness: 45
+      light.bathroom_vanity:
+        state: on
+        brightness: 30
+      light.nursery:
+        state: on
+        brightness: 30
+  - name: Living
+    entities:
+      light.lamp:
+        state: on
+        brightness: 255
+      light.dining_room_chandelier:
+        state: on
+        brightness: 150
+      light.dining_room:
+        state: on
+        brightness: 100
+  - name: Lamp
+    entities:
+      light.lamp:
+        state: on
+        brightness: 255
+      light.dining_room_chandelier:
+        state: off
+      light.dining_room:
+        state: off
+      light.bathroom_vanity:
+        state: off
+      light.bedroom:
+        state: off
+      light.nursery:
+        state: off
 
 group: !include groups.yaml
 automation: !include automations.yaml

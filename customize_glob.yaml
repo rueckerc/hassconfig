@@ -1,2 +1,10 @@
 "zwave.*":
-    hidden: true
+  hidden: true
+"sensor.*_iphone_battery_*":
+  hidden: true
+"sensor.ecolink_motion_detector*":
+  hidden: true
+"*pico*":
+  hidden: true
+"sensor.*SourceNodeId":
+  hidden: true
