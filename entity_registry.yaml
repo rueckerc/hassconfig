@@ -74,7 +74,7 @@ light.dining_room:
   name: Dining Room
   platform: zwave
   unique_id: 6-72057594143408129
-light.hue_color_lamp_1_2:
+light.lower_lamp:
   name:
   platform: hue
   unique_id: 00:17:88:01:03:df:53:37-0b
@@ -134,3 +134,7 @@ light.hue_lightstrip_plus_1:
   name:
   platform: hue
   unique_id: 00:17:88:01:02:ad:d6:f7-0b
+binary_sensor.backdoor_sensor:
+  name:
+  platform: zwave
+  unique_id: 9-72057594193903616

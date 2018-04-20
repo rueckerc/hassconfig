@@ -2,8 +2,6 @@ zwave.ecolink_motion_detector_4:
   new_entity_id: zwave.patio_motion
 zwave.ecolink_motion_detector:
   new_entity_id: zwave.patio_motion
-binary_sensor.sensor:
-  new_entity_id: binary_sensor.patio_motion
 device_tracker.curtiss_iphone:
   friendly_name: Curtis
 device_tracker.audreys_iphone:

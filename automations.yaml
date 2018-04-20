@@ -5,77 +5,37 @@
     to: 'on'
   condition:
     - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+  action:
+    - service: switch.turn_on
       entity_id: switch.patio
-      state: 'off'
+    - service: timer.start
+      entity_id: timer.patio_lights_off
+
+- alias: Patio - Off after 10
+  trigger:
+    platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.patio_lights_off
+  action:
+    - service: switch.turn_off
+      entity_id: switch.patio
+
+- alias: Patio - Door sensor on
+  trigger:
+    platform: state
+    entity_id: binary_sensor.backdoor_sensor
+  condition:
     - condition: state
       entity_id: sun.sun
       state: 'below_horizon'
   action:
     - service: switch.turn_on
       entity_id: switch.patio
-    - service: counter.increment
-      entity_id: counter.patio_motion_trigger
-
-- alias: Patio - Motion Off
-  trigger:
-    platform: state
-    entity_id: binary_sensor.patio_motion
-    to: 'off'
-    for:
-      minutes: 10
-  condition:
-    - condition: numeric_state
-      entity_id: counter.patio_motion_trigger
-      above: 0
-  action:
-    - service: switch.turn_off
-      entity_id: switch.patio
-    - service: counter.reset
-      entity_id: counter.patio_motion_trigger
-
-- alias: Living Room - Motion
-  initial_state: 'off'
-  trigger:
-    platform: state
-    entity_id: binary_sensor.livingroom
-    to: 'on'
-  action:
-    - service: counter.increment
-      entity_id: counter.livingroom_motion_trigger
-
-- alias: Pico to light
-  hide_entity: true
-  trigger:
-    platform: state
-    entity_id: sensor.living_room_pico
-
-- alias: Living Room - Motion Bedtime
-  hide_entity: True
-  trigger:
-    platform: state
-    entity_id: counter.livingroom_motion_trigger
-  condition:
-    - condition: numeric_state
-      entity_id: counter.livingroom_motion_trigger
-      above: 0
-      below: 2
-  action:
-    - service: scene.turn_on
-      entity_id: scene.bedtime
-
-- alias: Living Room - No motion Nightlight
-  initial_state: 'off'
-  trigger:
-    platform: state
-    entity_id: binary_sensor.livingroom
-    to: 'off'
-    for:
-      minutes: 10
-  action:
-    - service: scene.turn_on
-      entity_id: scene.nightlight
-    - service: counter.reset
-      entity_id: counter.livingroom_motion_trigger
+    - service: timer.start
+      entity_id: timer.patio_lights_off
 
 - alias: Pico - On
   hide_entity: True
@@ -85,7 +45,7 @@
     to: '1'
   action:
     service: scene.turn_on
-    entity_id: scene.living
+    entity_id: scene.daytime
 
 - alias: Pico - Off
   hide_entity: True
@@ -94,8 +54,8 @@
     entity_id: sensor.living_room_pico
     to: '4'
   action:
-    service: light.turn_off
-    entity_id: group.all_lights
+    service: scene.turn_on
+    entity_id: scene.mains_off
 
 - alias: Pico - Up
   hide_entity: True
@@ -105,7 +65,7 @@
     to: '8'
   action:
     service: scene.turn_on
-    entity_id: scene.bedtime
+    entity_id: scene.evening
 
 - alias: Pico - Down
   hide_entity: True
@@ -115,7 +75,7 @@
     to: '16'
   action:
     service: scene.turn_on
-    entity_id: scene.nightlight
+    entity_id: scene.night
 
 - alias: Pico - Button
   hide_entity: True
@@ -124,5 +84,34 @@
     entity_id: sensor.living_room_pico
     to: '2'
   action:
+    service: light.turn_off
+    entity_id: group.all_lights
+
+- alias: Lights on before sunset
+  hide_entity: True
+  trigger:
+    platform: sun
+    event: sunset
+    offset: '-02:00:00'
+  action:
     service: scene.turn_on
-    entity_id: scene.lamp
+    entity_id: scene.daytime
+
+- alias: Evening lighting at 9:30
+  hide_entity: True
+  trigger:
+    platform: time
+    at: '21:30:00'
+  action:
+    service: scene.turn_on
+    entity_id: scene.evening
+
+- alias: Mains off in morning
+  hide_entity: True
+  trigger:
+    platform: sun
+    event: sunrise
+    offset: '01:00:00'
+  action:
+    service: scene.turn_on
+    entity_id: scene.mains_off

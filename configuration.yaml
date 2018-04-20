@@ -13,12 +13,31 @@ homeassistant:
   # Customization file
   customize: !include customize.yaml
   customize_glob: !include customize_glob.yaml
+
 zwave:
   usb_path: /dev/ttyACM0
+  polling_interval: 500
 
 lutron_caseta_pro:
   bridges:
     - host: 192.168.86.73
+
+light:
+  - platform: group
+    name: Main lights
+    entities:
+      - light.living_room
+      - light.dining_room
+      - light.dining_room_chandelier
+
+#pico_dimmer:
+#  - sensor: sensor.living_room_pico
+#    light: light.main_lights
+
+logger:
+  default: error
+  logs:
+    custom_components.pico_dimmer: debug
 
 counter:
   patio_motion_trigger:
@@ -27,6 +46,10 @@ counter:
   livingroom_motion_trigger:
     initial: 0
     step: 1
+
+timer:
+  patio_lights_off:
+    duration: '00:07:00'
 
 media_player:
   - platform: denonavr
@@ -99,63 +122,68 @@ tts:
 cloud:
 
 scene:
-  - name: Bedtime
+  - name: Evening
     entities:
       light.lamp:
         state: on
         brightness: 135
+      light.lower_lamp:
+        state: on
+        brightness: 67
       light.dining_room_chandelier:
         state: on
         brightness: 90
       light.dining_room:
         state: on
         brightness: 90
-      light.bathroom_vanity:
-        state: on
-        brightness: 90
       light.nursery:
         state: on
         brightness: 90
-  - name: Nightlight
+  - name: Night
     entities:
       light.lamp:
         state: on
-        brightness: 80
+        brightness: 60
+      light.lower_lamp:
+        state: on
+        brightness: 30
       light.dining_room_chandelier:
         state: on
         brightness: 60
       light.dining_room:
         state: on
         brightness: 45
-      light.bathroom_vanity:
-        state: on
-        brightness: 30
       light.nursery:
         state: on
         brightness: 30
-  - name: Living
+  - name: Daytime
     entities:
       light.lamp:
         state: on
-        brightness: 255
+        brightness: 254
+      light.lower_lamp:
+        state: on
+        brightness: 125
       light.dining_room_chandelier:
         state: on
-        brightness: 150
+        brightness: 160
       light.dining_room:
         state: on
-        brightness: 100
-  - name: Lamp
+        brightness: 115
+      light.nursery:
+        state: on
+        brightness: 115
+  - name: Mains off
     entities:
       light.lamp:
-        state: on
-        brightness: 255
+        state: off
+      light.lower_lamp:
+        state: off
       light.dining_room_chandelier:
         state: off
       light.dining_room:
         state: off
       light.bathroom_vanity:
-        state: off
-      light.bedroom:
         state: off
       light.nursery:
         state: off
