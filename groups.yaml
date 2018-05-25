@@ -1,0 +1,45 @@
+default_view:
+  view: yes
+  icon: mdi:home
+  entities:
+    - group.rooms
+    - device_tracker.curtiss_iphone
+    - device_tracker.audreys_iphone
+    - sun.sun
+    - timer.patio_lights_off
+    - binary_sensor.backdoor_sensor
+    - binary_sensor.patio_motion
+    - scene.daytime
+    - scene.evening
+    - scene.mains_off
+    - scene.night
+media_view:
+  view: yes
+  icon: mdi:television-classic
+  entities:
+    - media_player.denonavr1912
+    - media_player.lg_webos_smart_tv
+bulbs_view:
+  view: yes
+  icon: mdi:lightbulb
+  entities:
+    - group.all_lights
+automation_view:
+  name: Automation
+  view: yes
+  icon: mdi:cogs
+  entities:
+    - group.all_automations
+rooms:
+  name: Rooms
+  control: hidden
+  entities:
+    - light.basement
+    - light.game
+    - light.bedroom
+    - light.dining_room
+    - light.dining_room_chandelier
+    - light.living_room
+    - light.nursery
+    - light.stairway
+    - switch.patio

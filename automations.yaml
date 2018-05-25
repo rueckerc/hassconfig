@@ -97,11 +97,11 @@
     service: scene.turn_on
     entity_id: scene.daytime
 
-- alias: Evening lighting at 9:30
+- alias: Evening lighting at 9:00
   hide_entity: True
   trigger:
     platform: time
-    at: '21:30:00'
+    at: '21:00:00'
   action:
     service: scene.turn_on
     entity_id: scene.evening
@@ -115,3 +115,33 @@
   action:
     service: scene.turn_on
     entity_id: scene.mains_off
+
+- alias: Ignore motion after mains off
+  hide_entity: True
+  trigger:
+    platform: state
+    entity_id: light.main_lights
+    to: 'off'
+  action:
+    service: timer.start
+    entity_id: timer.livingroom_motion_ignore
+
+- alias: Mains on night Motion
+  trigger:
+    platform: state
+    entity_id: binary_sensor.livingroom
+    to: 'on'
+  condition:
+    - condition: or
+      conditions:
+        - condition: time
+          after: '21:30:00'
+        - condition: sun
+          before: sunrise
+          before_offset: '01:00:00'
+    - condition: state
+      entity_id: counter.livingroom_motion_ignore
+      state: 'idle'
+  action:
+    service: scene.turn_on
+    entity_id: scene.night

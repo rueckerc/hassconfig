@@ -30,9 +30,11 @@ light:
       - light.dining_room
       - light.dining_room_chandelier
 
-#pico_dimmer:
-#  - sensor: sensor.living_room_pico
-#    light: light.main_lights
+pico_dimmer:
+  - sensor: sensor.basement_game_area_pico
+    light: light.game
+  - sensor: sensor.master_bedroom_pico
+    light: light.bedroom
 
 logger:
   default: error
@@ -43,13 +45,12 @@ counter:
   patio_motion_trigger:
     initial: 0
     step: 1
-  livingroom_motion_trigger:
-    initial: 0
-    step: 1
 
 timer:
   patio_lights_off:
     duration: '00:07:00'
+  livingroom_motion_ignore:
+    duration: '00:00:30'
 
 media_player:
   - platform: denonavr
@@ -136,6 +137,9 @@ scene:
       light.dining_room:
         state: on
         brightness: 90
+      light.bathroom_vanity:
+        state: on
+        brightness: 90
       light.nursery:
         state: on
         brightness: 90
@@ -143,14 +147,17 @@ scene:
     entities:
       light.lamp:
         state: on
-        brightness: 60
+        brightness: 2
       light.lower_lamp:
         state: on
-        brightness: 30
+        brightness: 1
       light.dining_room_chandelier:
         state: on
         brightness: 60
       light.dining_room:
+        state: on
+        brightness: 45
+      light.bathroom_vanity:
         state: on
         brightness: 45
       light.nursery:
