@@ -138,7 +138,7 @@ scene:
         brightness: 135
       light.living_room_overhead:
         state: on
-        brightness: 135
+        brightness: 45
       light.lower_lamp:
         state: on
         brightness: 67
