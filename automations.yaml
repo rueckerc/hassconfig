@@ -41,7 +41,7 @@
   hide_entity: True
   trigger:
     platform: state
-    entity_id: sensor.living_room_pico
+    entity_id: sensor.main_pico
     to: '1'
   action:
     service: scene.turn_on
@@ -51,7 +51,7 @@
   hide_entity: True
   trigger:
     platform: state
-    entity_id: sensor.living_room_pico
+    entity_id: sensor.main_pico
     to: '4'
   action:
     service: scene.turn_on
@@ -61,7 +61,7 @@
   hide_entity: True
   trigger:
     platform: state
-    entity_id: sensor.living_room_pico
+    entity_id: sensor.main_pico
     to: '8'
   action:
     service: scene.turn_on
@@ -71,7 +71,7 @@
   hide_entity: True
   trigger:
     platform: state
-    entity_id: sensor.living_room_pico
+    entity_id: sensor.main_pico
     to: '16'
   action:
     service: scene.turn_on
@@ -81,7 +81,7 @@
   hide_entity: True
   trigger:
     platform: state
-    entity_id: sensor.living_room_pico
+    entity_id: sensor.main_pico
     to: '2'
   action:
     service: light.turn_off
@@ -96,6 +96,24 @@
   action:
     service: scene.turn_on
     entity_id: scene.daytime
+
+- alias: Front porch lights on at sunset
+  hide_entity: True
+  trigger:
+    platform: sun
+    event: sunset
+  action:
+    service: light.turn_on
+    entity_id: light.front_porch_overhead_light
+
+- alias: Front porch lights off at sunrise
+  hide_entity: True
+  trigger:
+    platform: sun
+    event: sunrise
+  action:
+    service: light.turn_off
+    entity_id: light.front_porch_overhead_light
 
 - alias: Evening lighting at 9:00
   hide_entity: True

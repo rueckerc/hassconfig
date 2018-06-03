@@ -38,8 +38,9 @@ rooms:
     - light.game
     - light.bedroom
     - light.dining_room
-    - light.dining_room_chandelier
+    - light.bar_pendant
     - light.living_room
     - light.nursery
     - light.stairway
+    - light.front_porch_overhead_light
     - switch.patio

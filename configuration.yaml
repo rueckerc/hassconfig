@@ -28,13 +28,21 @@ light:
     entities:
       - light.living_room
       - light.dining_room
-      - light.dining_room_chandelier
+      - light.bar_pendant
+  - platform: group
+    name: Living Room Overhead
+    entities:
+      - light.living_room_overhead_1
+      - light.living_room_overhead_2
+      - light.living_room_overhead_4
+      - light.living_room_overhead_5
+      - light.living_room_overhead_6
 
 pico_dimmer:
   - sensor: sensor.basement_game_area_pico
     light: light.game
-  - sensor: sensor.master_bedroom_pico
-    light: light.bedroom
+  - sensor: sensor.living_room_pico
+    light: light.living_room
 
 logger:
   default: error
@@ -128,10 +136,13 @@ scene:
       light.lamp:
         state: on
         brightness: 135
+      light.living_room_overhead:
+        state: on
+        brightness: 135
       light.lower_lamp:
         state: on
         brightness: 67
-      light.dining_room_chandelier:
+      light.bar_pendant:
         state: on
         brightness: 90
       light.dining_room:
@@ -148,12 +159,13 @@ scene:
       light.lamp:
         state: on
         brightness: 2
+      light.living_room_overhead:
+        state: off
       light.lower_lamp:
         state: on
         brightness: 1
-      light.dining_room_chandelier:
-        state: on
-        brightness: 60
+      light.bar_pendant:
+        state: off
       light.dining_room:
         state: on
         brightness: 45
@@ -168,10 +180,13 @@ scene:
       light.lamp:
         state: on
         brightness: 254
+      light.living_room_overhead:
+        state: on
+        brightness: 254
       light.lower_lamp:
         state: on
         brightness: 125
-      light.dining_room_chandelier:
+      light.bar_pendant:
         state: on
         brightness: 160
       light.dining_room:
@@ -182,11 +197,9 @@ scene:
         brightness: 115
   - name: Mains off
     entities:
-      light.lamp:
+      light.living_room:
         state: off
-      light.lower_lamp:
-        state: off
-      light.dining_room_chandelier:
+      light.bar_pendant:
         state: off
       light.dining_room:
         state: off

@@ -146,15 +146,35 @@ light.game_1:
   name:
   platform: hue
   unique_id: 00:17:88:01:03:ec:82:e5-0b
-light.hue_color_lamp_1:
+light.game_lantern_1:
   name:
   platform: hue
   unique_id: 00:17:88:01:03:ad:a2:f8-0b
-light.hue_color_lamp_2:
+light.game_lantern_2:
   name:
   platform: hue
   unique_id: 00:17:88:01:03:d0:02:cb-0b
-light.hue_color_lamp_3:
+light.game_lantern_3:
   name:
   platform: hue
   unique_id: 00:17:88:01:03:b0:53:21-0b
+light.living_room_overhead_1:
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:03:aa:ba:4f-0b
+light.living_room_overhead_2:
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:03:ac:64:ab-0b
+light.living_room_overhead_4:
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:03:aa:ba:a9-0b
+light.living_room_overhead_6:
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:03:f2:a2:88-0b
+light.living_room_overhead_5:
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:03:b8:12:ee-0b
