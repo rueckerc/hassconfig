@@ -22,22 +22,6 @@ lutron_caseta_pro:
   bridges:
     - host: 192.168.86.73
 
-light:
-  - platform: group
-    name: Main lights
-    entities:
-      - light.living_room
-      - light.dining_room
-      - light.bar_pendant
-  - platform: group
-    name: Living Room Overhead
-    entities:
-      - light.living_room_overhead_1
-      - light.living_room_overhead_2
-      - light.living_room_overhead_4
-      - light.living_room_overhead_5
-      - light.living_room_overhead_6
-
 pico_dimmer:
   - sensor: sensor.basement_game_area_pico
     light: light.game
@@ -88,8 +72,8 @@ http:
   api_password: !secret http_password
   # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
   base_url: 5314.duckdns.org:8123
-  ssl_certificate: /home/homeassistant/dehydrated/certs/5314.duckdns.org/fullchain.pem
-  ssl_key: /home/homeassistant/dehydrated/certs/5314.duckdns.org/privkey.pem
+  ssl_certificate: /etc/letsencrypt/live/5314.duckdns.org/fullchain.pem
+  ssl_key: /etc/letsencrypt/live/5314.duckdns.org/privkey.pem
 
 # Checks for available updates
 # Note: This component will send some information about your system to
@@ -131,17 +115,39 @@ tts:
 cloud:
 
 scene:
+  - name: Daytime
+    entities:
+      light.living_room:
+        state: on
+        brightness: 150
+      light.bar_pendant:
+        state: on
+        brightness: 160
+      light.dining_room:
+        state: on
+        brightness: 115
+      light.nursery:
+        state: on
+        brightness: 115
+  - name: Early Evening
+    entities:
+      light.living_room:
+        state: on
+        brightness: 117
+      light.bar_pendant:
+        state: on
+        brightness: 125
+      light.dining_room:
+        state: on
+        brightness: 102
+      light.nursery:
+        state: on
+        brightness: 102
   - name: Evening
     entities:
-      light.lamp:
+      light.living_room:
         state: on
-        brightness: 135
-      light.living_room_overhead:
-        state: on
-        brightness: 45
-      light.lower_lamp:
-        state: on
-        brightness: 67
+        brightness: 50
       light.bar_pendant:
         state: on
         brightness: 90
@@ -175,26 +181,6 @@ scene:
       light.nursery:
         state: on
         brightness: 30
-  - name: Daytime
-    entities:
-      light.lamp:
-        state: on
-        brightness: 254
-      light.living_room_overhead:
-        state: on
-        brightness: 254
-      light.lower_lamp:
-        state: on
-        brightness: 125
-      light.bar_pendant:
-        state: on
-        brightness: 160
-      light.dining_room:
-        state: on
-        brightness: 115
-      light.nursery:
-        state: on
-        brightness: 115
   - name: Mains off
     entities:
       light.living_room:

@@ -10,6 +10,7 @@ default_view:
     - binary_sensor.backdoor_sensor
     - binary_sensor.patio_motion
     - scene.daytime
+    - scene.early_evening
     - scene.evening
     - scene.mains_off
     - scene.night

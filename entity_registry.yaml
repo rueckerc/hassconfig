@@ -178,3 +178,7 @@ light.living_room_overhead_5:
   name:
   platform: hue
   unique_id: 00:17:88:01:03:b8:12:ee-0b
+light.living_room_overhead_3:
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:03:83:61:be-0b
