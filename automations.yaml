@@ -55,7 +55,7 @@
     to: '4'
   action:
     service: scene.turn_on
-    entity_id: scene.mains_off
+    entity_id: scene.night_light
 
 - alias: Pico - Up
   hide_entity: True
@@ -75,7 +75,7 @@
     to: '16'
   action:
     service: scene.turn_on
-    entity_id: scene.night
+    entity_id: scene.mains_low
 
 - alias: Pico - Button
   hide_entity: True
@@ -140,8 +140,8 @@
     event: sunrise
     offset: '01:00:00'
   action:
-    service: scene.turn_on
-    entity_id: scene.mains_off
+    service: light.turn_off
+    entity_id: group.all_lights
 
 - alias: Ignore motion after mains off
   hide_entity: True

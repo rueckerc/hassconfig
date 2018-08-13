@@ -26,7 +26,15 @@ pico_dimmer:
   - sensor: sensor.basement_game_area_pico
     light: light.game
   - sensor: sensor.living_room_pico
-    light: light.living_room
+    light: light.living_room_lights
+
+light:
+  - platform: group
+    name: Living Room Lights
+    entities:
+      - light.living_room
+      - light.lamp
+      - light.lower_lamp
 
 logger:
   default: error
@@ -120,6 +128,12 @@ scene:
       light.living_room:
         state: on
         brightness: 150
+      light.lamp:
+        state: on
+        brightness: 150
+      light.lower_lamp:
+        state: on
+        brightness: 75
       light.bar_pendant:
         state: on
         brightness: 160
@@ -134,6 +148,12 @@ scene:
       light.living_room:
         state: on
         brightness: 117
+      light.lamp:
+        state: on
+        brightness: 117
+      light.lower_lamp:
+        state: on
+        brightness: 59
       light.bar_pendant:
         state: on
         brightness: 125
@@ -148,6 +168,12 @@ scene:
       light.living_room:
         state: on
         brightness: 50
+      light.lamp:
+        state: on
+        brightness: 50
+      light.lower_lamp:
+        state: on
+        brightness: 25
       light.bar_pendant:
         state: on
         brightness: 90
@@ -160,16 +186,16 @@ scene:
       light.nursery:
         state: on
         brightness: 90
-  - name: Night
+  - name: Mains Low
     entities:
       light.lamp:
         state: on
-        brightness: 2
-      light.living_room_overhead:
+        brightness: 20
+      light.living_room:
         state: off
       light.lower_lamp:
         state: on
-        brightness: 1
+        brightness: 10
       light.bar_pendant:
         state: off
       light.dining_room:
@@ -181,18 +207,27 @@ scene:
       light.nursery:
         state: on
         brightness: 30
-  - name: Mains off
+  - name: Night Light
     entities:
+      light.lamp:
+        state: on
+        brightness: 2
       light.living_room:
         state: off
+      light.lower_lamp:
+        state: on
+        brightness: 1
       light.bar_pendant:
         state: off
       light.dining_room:
-        state: off
+        state: on
+        brightness: 20
       light.bathroom_vanity:
-        state: off
+        state: on
+        brightness: 20
       light.nursery:
-        state: off
+        state: on
+        brightness: 15
 
 group: !include groups.yaml
 automation: !include automations.yaml
