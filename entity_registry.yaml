@@ -182,3 +182,15 @@ light.living_room_overhead_3:
   name:
   platform: hue
   unique_id: 00:17:88:01:03:83:61:be-0b
+switch.living_room_halloween:
+  name:
+  platform: wemo
+  unique_id: 221742K01158FA
+switch.kitchen_halloween:
+  name:
+  platform: wemo
+  unique_id: 221742K0115A7F
+switch.nursery_fan:
+  name:
+  platform: wemo
+  unique_id: 221742K0115903

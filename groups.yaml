@@ -25,6 +25,7 @@ bulbs_view:
   icon: mdi:lightbulb
   entities:
     - group.all_lights
+    - group.all_switches
 automation_view:
   name: Automation
   view: yes
@@ -45,3 +46,5 @@ rooms:
     - light.stairway
     - light.front_porch_overhead_light
     - switch.patio
+    - switch.kitchen_halloween
+    - switch.living_room_halloween

@@ -18,5 +18,7 @@ light.dining_room_chandelier:
   friendly_name: Bar
 group.all_lights:
   hidden: false
+group.all_switches:
+  hidden: false
 group.all_automations:
   hidden: false

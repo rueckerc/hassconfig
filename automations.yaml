@@ -88,7 +88,6 @@
     entity_id: group.all_lights
 
 - alias: Lights on before sunset
-  hide_entity: True
   trigger:
     platform: sun
     event: sunset
@@ -115,33 +114,45 @@
     service: light.turn_off
     entity_id: light.front_porch_overhead_light
 
-- alias: Early evening lighting at 8:30
-  hide_entity: True
+- alias: Halloween lights on at 5
+  hide_entity: False
+  trigger:
+    platform: time
+    at: '17:00:00'
+  action:
+    - service: switch.turn_on
+      entity_id: switch.kitchen_halloween
+    - service: switch.turn_on
+      entity_id: switch.living_room_halloween
+
+- alias: Halloween lights off at 9
+  hide_entity: False
+  trigger:
+    platform: time
+    at: '9:00:00'
+  action:
+    - service: switch.turn_off
+      entity_id: switch.kitchen_halloween
+    - service: switch.turn_off
+      entity_id: switch.living_room_halloween
+
+- alias: Early evening lighting at 7:20
+  initial_state: False
+  trigger:
+    platform: time
+    at: '19:20:00'
+  action:
+    service: scene.turn_on
+    entity_id: scene.early_evening
+
+- alias: Evening lighting at 8:30
+  initial_state: False
   trigger:
     platform: time
     at: '20:30:00'
   action:
     service: scene.turn_on
-    entity_id: scene.early_evening
-
-- alias: Evening lighting at 9:00
-  hide_entity: True
-  trigger:
-    platform: time
-    at: '21:00:00'
-  action:
-    service: scene.turn_on
     entity_id: scene.evening
-
-- alias: Mains off in morning
-  hide_entity: True
-  trigger:
-    platform: sun
-    event: sunrise
-    offset: '01:00:00'
-  action:
-    service: light.turn_off
-    entity_id: group.all_lights
 
 - alias: Ignore motion after mains off
   hide_entity: True
@@ -152,6 +163,17 @@
   action:
     service: timer.start
     entity_id: timer.livingroom_motion_ignore
+
+- alias: Bedroom wakeup light
+  trigger:
+    platform: time
+    at: '06:50:00'
+  action:
+    service: light.turn_on
+    entity_id: light.bedroom
+    data:
+      brightness: 115
+      transition: 1200
 
 - alias: Mains on night Motion
   trigger:

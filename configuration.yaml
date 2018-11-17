@@ -122,6 +122,8 @@ tts:
 # Cloud
 cloud:
 
+wemo:
+
 scene:
   - name: Daytime
     entities:
@@ -129,6 +131,12 @@ scene:
         state: on
         brightness: 150
       light.lamp:
+        state: on
+        brightness: 150
+      light.lower_stair:
+        state: on
+        brightness: 150
+      light.upper_stair:
         state: on
         brightness: 150
       light.lower_lamp:
@@ -140,17 +148,14 @@ scene:
       light.dining_room:
         state: on
         brightness: 115
-      light.nursery:
-        state: on
-        brightness: 115
   - name: Early Evening
     entities:
       light.living_room:
         state: on
-        brightness: 117
+        brightness: 90
       light.lamp:
         state: on
-        brightness: 117
+        brightness: 90
       light.lower_lamp:
         state: on
         brightness: 59
@@ -158,9 +163,6 @@ scene:
         state: on
         brightness: 125
       light.dining_room:
-        state: on
-        brightness: 102
-      light.nursery:
         state: on
         brightness: 102
   - name: Evening
@@ -174,6 +176,12 @@ scene:
       light.lower_lamp:
         state: on
         brightness: 25
+      light.lower_stair:
+        state: on
+        brightness: 50
+      light.upper_stair:
+        state: on
+        brightness: 50
       light.bar_pendant:
         state: on
         brightness: 90
@@ -181,9 +189,6 @@ scene:
         state: on
         brightness: 90
       light.bathroom_vanity:
-        state: on
-        brightness: 90
-      light.nursery:
         state: on
         brightness: 90
   - name: Mains Low
@@ -192,21 +197,22 @@ scene:
         state: on
         brightness: 20
       light.living_room:
-        state: off
+        state: on
+        brightness: 30
       light.lower_lamp:
         state: on
         brightness: 10
+      light.lower_stair:
+        state: on
+        brightness: 30
+      light.upper_stair:
+        state: on
+        brightness: 30
       light.bar_pendant:
         state: off
       light.dining_room:
         state: on
         brightness: 45
-      light.bathroom_vanity:
-        state: on
-        brightness: 45
-      light.nursery:
-        state: on
-        brightness: 30
   - name: Night Light
     entities:
       light.lamp:
@@ -217,6 +223,12 @@ scene:
       light.lower_lamp:
         state: on
         brightness: 1
+      light.lower_stair:
+        state: on
+        brightness: 10
+      light.upper_stair:
+        state: on
+        brightness: 10
       light.bar_pendant:
         state: off
       light.dining_room:
@@ -225,9 +237,6 @@ scene:
       light.bathroom_vanity:
         state: on
         brightness: 20
-      light.nursery:
-        state: on
-        brightness: 15
 
 group: !include groups.yaml
 automation: !include automations.yaml
