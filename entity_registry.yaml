@@ -190,7 +190,19 @@ switch.kitchen_halloween:
   name:
   platform: wemo
   unique_id: 221742K0115A7F
-switch.nursery_fan:
+switch.bottle_warmer:
   name:
   platform: wemo
   unique_id: 221742K0115903
+light.kitchen_1:
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:03:81:b3:8f-0b
+light.kitchen_2:
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:03:fd:b2:f9-0b
+light.kitchen_3:
+  name:
+  platform: hue
+  unique_id: 00:17:88:01:03:f2:14:91-0b

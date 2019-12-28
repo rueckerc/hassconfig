@@ -51,6 +51,8 @@ timer:
     duration: '00:07:00'
   livingroom_motion_ignore:
     duration: '00:00:30'
+  bottle_warmer_off:
+    duration: '00:06:00'
 
 media_player:
   - platform: denonavr
@@ -130,6 +132,9 @@ scene:
       light.living_room:
         state: on
         brightness: 150
+      light.kitchen:
+        state: on
+        brightness: 150
       light.lamp:
         state: on
         brightness: 150
@@ -153,6 +158,9 @@ scene:
       light.living_room:
         state: on
         brightness: 90
+      light.kitchen:
+        state: on
+        brightness: 90
       light.lamp:
         state: on
         brightness: 90
@@ -168,6 +176,9 @@ scene:
   - name: Evening
     entities:
       light.living_room:
+        state: on
+        brightness: 100
+      light.kitchen:
         state: on
         brightness: 50
       light.lamp:
@@ -190,13 +201,16 @@ scene:
         brightness: 90
       light.bathroom_vanity:
         state: on
-        brightness: 90
+        brightness: 100
   - name: Mains Low
     entities:
       light.lamp:
         state: on
         brightness: 20
       light.living_room:
+        state: on
+        brightness: 30
+      light.kitchen:
         state: on
         brightness: 30
       light.lower_lamp:
@@ -212,7 +226,7 @@ scene:
         state: off
       light.dining_room:
         state: on
-        brightness: 45
+        brightness: 90
   - name: Night Light
     entities:
       light.lamp:
@@ -221,6 +235,9 @@ scene:
       light.living_room:
         state: off
       light.lower_lamp:
+        state: on
+        brightness: 1
+      light.kitchen:
         state: on
         brightness: 1
       light.lower_stair:
@@ -232,8 +249,7 @@ scene:
       light.bar_pendant:
         state: off
       light.dining_room:
-        state: on
-        brightness: 20
+        state: off
       light.bathroom_vanity:
         state: on
         brightness: 20
