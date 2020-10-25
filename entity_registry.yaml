@@ -190,7 +190,7 @@ switch.kitchen_halloween:
   name:
   platform: wemo
   unique_id: 221742K0115A7F
-switch.bottle_warmer:
+switch.white_noise:
   name:
   platform: wemo
   unique_id: 221742K0115903
@@ -206,3 +206,7 @@ light.kitchen_3:
   name:
   platform: hue
   unique_id: 00:17:88:01:03:f2:14:91-0b
+media_player.desktopc04c0g4:
+  name:
+  platform: cast
+  unique_id: c97dd4f8-0b36-bf81-963c-7fe4d34081c2

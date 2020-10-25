@@ -51,8 +51,6 @@ timer:
     duration: '00:07:00'
   livingroom_motion_ignore:
     duration: '00:00:30'
-  bottle_warmer_off:
-    duration: '00:06:00'
 
 media_player:
   - platform: denonavr

@@ -7,7 +7,6 @@ default_view:
     - device_tracker.audreys_iphone
     - sun.sun
     - timer.patio_lights_off
-    - timer.bottle_warmer_off
     - binary_sensor.patio_motion
     - scene.daytime
     - scene.early_evening

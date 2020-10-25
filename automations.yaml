@@ -87,6 +87,26 @@
     service: light.turn_off
     entity_id: group.all_lights
 
+- alias: Master Pico - Off
+  hide_entity: True
+  trigger:
+    platform: state
+    entity_id: sensor.master_bedroom_pico
+    to: '4'
+  action:
+    service: switch.turn_off
+    entity_id: switch.white_noise
+
+- alias: Master Pico - On
+  hide_entity: True
+  trigger:
+    platform: state
+    entity_id: sensor.master_bedroom_pico
+    to: '1'
+  action:
+    service: switch.turn_on
+    entity_id: switch.white_noise
+
 - alias: Lights on before sunset
   trigger:
     platform: sun
@@ -136,14 +156,14 @@
     - service: switch.turn_off
       entity_id: switch.living_room_halloween
 
-- alias: Early evening lighting at 7:20
-  initial_state: False
+- alias: Evening lighting at 7:50
+  initial_state: True
   trigger:
     platform: time
-    at: '19:20:00'
+    at: '19:50:00'
   action:
     service: scene.turn_on
-    entity_id: scene.early_evening
+    entity_id: scene.evening
 
 - alias: Evening lighting at 8:30
   initial_state: False
@@ -154,25 +174,6 @@
     service: scene.turn_on
     entity_id: scene.evening
 
-- alias: Start bottle warmer timer
-  trigger:
-    platform: state
-    entity_id: switch.bottle_warmer
-    to: 'on'
-  action:
-    service: timer.start
-    entity_id: timer.bottle_warmer_off
-
-- alias: Bottle warmer off
-  trigger:
-    platform: event
-    event_type: timer.finished
-    event_data:
-      entity_id: timer.bottle_warmer_off
-  action:
-    - service: switch.turn_off
-      entity_id: switch.bottle_warmer
-
 - alias: Ignore motion after mains off
   hide_entity: True
   trigger:
@@ -182,23 +183,6 @@
   action:
     service: timer.start
     entity_id: timer.livingroom_motion_ignore
-
-- alias: Wakeup light
-  trigger:
-    platform: time
-    at: '04:40:00'
-  action:
-    - service: light.turn_on
-      entity_id: light.bedroom
-      data:
-        brightness: 1
-    - service: light.turn_on
-      entity_id: light.bedroom
-      data:
-        brightness: 90
-        transition: 1800
-    - service: scene.turn_on
-      entity_id: scene.mains_low
 
 - alias: Mains on night Motion
   trigger:
